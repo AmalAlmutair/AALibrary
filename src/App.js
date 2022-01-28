@@ -1,13 +1,19 @@
-import logo from "./logo.svg";
 import "./App.css";
-import MembersList from "./components/MembersList";
-import AddMememberModal from "./modals/AddMememberModal";
+import "./assets/css/bootstrap-5.0.0-beta2.min.css";
+import { Route, Routes } from "react-router-dom";
+import Members from "../src/components/Members";
+import Books from "../src/components/Books";
+// import MemberProfile from "./components/MemberProfile";
 
 function App() {
   return (
-    <div className="App">
-      <AddMememberModal />
-      <MembersList />
+    <div>
+      <Routes>
+        {/* <Route path="/" element={<Members />} /> */}
+        <Route path="/" element={<Books />} />
+
+        {/* <Route path="/" element={<Home />} /> */}
+      </Routes>
     </div>
   );
 }
