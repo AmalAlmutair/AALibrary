@@ -1,8 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import ShowMemberProfile from "../modals/ShowMemberProfile";
-
-// import membersStore from "../stores/membersStore";
 
 const MemberItem = ({ member }) => {
   // const renderBadge = (member) => {

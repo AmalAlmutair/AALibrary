@@ -1,13 +1,11 @@
-import { Modal, Button, Form } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import React, { useState } from "react";
-import membersStore from "../stores/membersStore";
-import Members from "../components/Members";
 import booksData from "../booksData";
 // import Modal from "../modals/AddMememberModal";
 
 function ShowMemberProfile({ selectedMember }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [showMember, setShowMember] = useState({ selectedMember });
+  // const [showMember, setShowMember] = useState({ selectedMember });
 
   const handleClose = () => setIsOpen(false);
   const handleShow = () => setIsOpen(true);

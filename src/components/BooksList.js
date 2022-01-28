@@ -16,8 +16,9 @@ const BooksList = () => {
     )
     .map((book) => <BookItem key={book.id} book={book} />);
 
-  const books = booksStore.books.map((book) => <BookItem book={book} />);
-
+  const books = booksStore.books
+    .filter((book) => book.title.toLowerCase().includes(query.toLowerCase()))
+    .map((book) => <BookItem key={book.id} book={book} />);
   return (
     <>
       <div className="members-list">

@@ -1,5 +1,4 @@
 import React from "react";
-import Members from "./Members";
 
 const Home = () => {
   return (

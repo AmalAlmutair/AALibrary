@@ -11,6 +11,7 @@ const Members = () => {
           </div>
           <div className="header header-shadow">
             <img
+              alt="header"
               className="header-image"
               src="https://static01.nyt.com/images/2022/01/16/fashion/VIRAL-LIBRARY/VIRAL-LIBRARY-superJumbo.jpg?quality=75&auto=webp"
             />

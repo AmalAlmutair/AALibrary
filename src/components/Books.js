@@ -1,6 +1,4 @@
 import React from "react";
-import booksStore from "../stores/booksStore";
-import BookItem from "./BookItem";
 import BooksList from "./BooksList";
 
 const Books = () => {
@@ -14,6 +12,7 @@ const Books = () => {
           <div className="header header-shadow">
             <img
               className="header-image"
+              alt="header"
               src="https://static01.nyt.com/images/2022/01/16/fashion/VIRAL-LIBRARY/VIRAL-LIBRARY-superJumbo.jpg?quality=75&auto=webp"
             />
           </div>

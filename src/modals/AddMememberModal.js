@@ -1,8 +1,6 @@
 import { Modal, Button, Form } from "react-bootstrap";
 import React, { useState } from "react";
 import membersStore from "../stores/membersStore";
-import Members from "../components/Members";
-// import Modal from "../modals/AddMememberModal";
 
 function AddMememberModal() {
   const [isOpen, setIsOpen] = useState(false);
