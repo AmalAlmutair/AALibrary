@@ -1,4 +1,6 @@
 import React from "react";
+import booksStore from "../stores/booksStore";
+import BookItem from "./BookItem";
 import BooksList from "./BooksList";
 
 const Books = () => {
@@ -19,6 +21,7 @@ const Books = () => {
       </div>
       <body className="body">
         <BooksList />
+
         <footer className="footer">
           <p>
             Copyright 2022 - All Rights Reserved to Aisha Al Sharhan & Amal Al
