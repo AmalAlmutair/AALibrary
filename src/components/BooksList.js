@@ -6,44 +6,18 @@ import { observer } from "mobx-react";
 
 const BooksList = () => {
   const [query, setQuery] = useState("");
-  const [genre, setGenre] = useState([]);
+  const [genre, setGenre] = useState("");
 
-  // const selectAllGenres = booksStore.books.map((book) => (
-  //   <BookItem book={book} />
-  // ));
-  // const books = selectAllGenres;
-
-  // const filterBooks = () => {
-  //   if (genre == []) {
-  //     books = selectAllGenres;
-  //   } else {
-  const books = booksStore.books
+  const selectGenre = booksStore.books
     .filter(
       (book) =>
-        book.title.toLocaleLowerCase().includes(query.toLocaleLowerCase()) &&
+        book.title.toLowerCase().includes(query.toLowerCase()) &&
         book.genre.includes(genre)
     )
-    .map((book) => <BookItem book={book} />);
+    .map((book) => <BookItem key={book.id} book={book} />);
 
-  // const books = booksStore.books
-  //   .filter(
-  //     (book) =>
-  //       book.title.toLocaleLowerCase().includes(query.toLocaleLowerCase()) &&
-  //       book.genre.includes(genre)
-  //   )
-  //   .map((book) => <BookItem book={book} />);
+  const books = booksStore.books.map((book) => <BookItem book={book} />);
 
-  /// Start//
-
-  // const books = booksStore.books
-  //   .filter(
-  //     (book) =>
-  //       book.title.toLowerCase().includes(query.toLowerCase()) &&
-  //       book.genre.includes(genre)
-  //   )
-  //   .map((book) => <BookItem key={book.id} book={book} />);
-
-  //End
   return (
     <>
       <div className="members-list">
@@ -79,7 +53,7 @@ const BooksList = () => {
                       aria-label="Default select example"
                       onChange={(e) => setGenre(e.target.value)}
                     >
-                      <option value={[]} selected>
+                      <option value="" selected>
                         All Genres
                       </option>
                       <option value="Self-Help">Self Help</option>
@@ -93,7 +67,6 @@ const BooksList = () => {
                       <option value="Crime">Crime</option>
                       <option value="Mystery">Mystery</option>
                       <option value="Fiction">Fiction</option>
-                      <option value="Others">Others</option>
                     </select>
                   </div>
                 </div>
@@ -103,7 +76,7 @@ const BooksList = () => {
         </div>
       </div>
 
-      <div className="list">{books}</div>
+      <div className="list">{genre === "" ? books : selectGenre}</div>
     </>
   );
 };

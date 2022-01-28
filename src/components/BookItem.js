@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import ShowBookDetails from "../modals/ShowBookDetails";
 
 const BookItem = ({ book }) => {
@@ -15,15 +15,11 @@ const BookItem = ({ book }) => {
       </p>
       <p>
         <strong>Genre: </strong>
-        {book.genre}
+        {book.genre.join(", ")}
       </p>
       {/* <ShowBookDetails selectedBook={book} /> */}
       <p>
         <strong>Availability: </strong>
-      </p>
-      <p>
-        <strong>Genre: </strong>
-        {book.genre.join(", ")}
       </p>
     </div>
   );
