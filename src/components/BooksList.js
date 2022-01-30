@@ -26,9 +26,7 @@ const BooksList = () => {
           <div>
             <AddBookModal />
           </div>
-          <div>
-            <h3 className="list-title"> Books: </h3>
-          </div>
+
           <section id="doctors" className="doctor-section pt-140 list-title">
             <div className="container">
               <div className="row justify-content-center">
@@ -70,6 +68,9 @@ const BooksList = () => {
                       <option value="Fiction">Fiction</option>
                     </select>
                   </div>
+                </div>
+                <div>
+                  <h3 className="list-title"> Books: </h3>
                 </div>
               </div>
             </div>

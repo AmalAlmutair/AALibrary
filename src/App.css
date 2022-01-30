@@ -7,6 +7,7 @@
   display: flex;
   width: 100vw;
   height: 30vh;
+  color: black;
 }
 
 .header {
@@ -15,6 +16,18 @@
   height: 100%;
 }
 
+.discription {
+  background-color: tan;
+  height: 30%;
+  width: 30%;
+  position: absolute;
+  justify-content: center;
+
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: larger;
+  margin: 250px;
+  margin-left: 500px;
+}
 .header-shadow {
   position: absolute;
   background: rgb(0, 0, 0);
@@ -93,6 +106,10 @@
   /* background-color: rgb(252, 233, 203); */
   background-color: white;
 }
+/* .search {
+  display: flex;
+  flex-direction: column;
+} */
 
 .footer {
   margin-top: 10px;
