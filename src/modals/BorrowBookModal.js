@@ -5,7 +5,7 @@ import membersStore from "../stores/membersStore";
 
 function BorrowBook({ selectedBook }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [borrowedBy, setBorrowedBy] = useState();
+  const [borrowedBy, setBorrowedBy] = useState(1);
 
   const handleClose = () => setIsOpen(false);
   const handleShow = () => setIsOpen(true);
@@ -13,8 +13,15 @@ function BorrowBook({ selectedBook }) {
   const handleChange = (event) => {
     setBorrowedBy(event.target.value);
   };
-  const handleSubmit = () => {
+  const handleRetun = (event) => {
+    event.preventDefault();
+    membersStore.handleReturnBook(borrowedBy, selectedBook.id);
+    handleClose();
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
     membersStore.handleBorrowBook(borrowedBy, selectedBook.id);
+    handleClose();
   };
 
   return (
@@ -29,7 +36,9 @@ function BorrowBook({ selectedBook }) {
           <Modal.Title>Select Member</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleSubmit}>
+          <Form
+          // onSubmit={handleSubmit}
+          >
             <Form.Group className="mb-3">
               <Form.Label>Members:</Form.Label>
               <Form.Select name="membership" onChange={handleChange}>
@@ -41,8 +50,11 @@ function BorrowBook({ selectedBook }) {
               </Form.Select>
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" onClick={handleSubmit}>
               Borrow
+            </Button>
+            <Button variant="primary" type="submit" onClick={handleRetun}>
+              Retun
             </Button>
           </Form>
         </Modal.Body>
