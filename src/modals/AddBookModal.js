@@ -20,6 +20,7 @@ function AddBookModal() {
   const handleSubmit = (event) => {
     event.preventDefault();
     booksStore.handleAddBook(addBook);
+    setAddBook({ title: "", author: "", genre: ["Self-Help"] });
     handleClose();
   };
   return (
@@ -55,7 +56,6 @@ function AddBookModal() {
                 placeholder="Enter Author "
               />
             </Form.Group>
-
             <Form.Group className="mb-3">
               <Form.Label>Select Genre</Form.Label>
               <Form.Select name="genre" onChange={handleChange}>
@@ -70,13 +70,10 @@ function AddBookModal() {
                 <option value="Crime">Crime</option>
                 <option value="Mystery">Mystery</option>
                 <option value="Fiction">Fiction</option>
-                <option value="Others">Others</option>
-                {/* <option>Disabled select</option> */}
               </Form.Select>
             </Form.Group>
-
             <Button variant="primary" type="submit">
-              Add Member
+              Add Book
             </Button>
           </Form>
         </Modal.Body>

@@ -1,6 +1,7 @@
 import React from "react";
 // import { Link } from "react-router-dom";
-// import ShowBookDetails from "../modals/ShowBookDetails";
+import ShowBookDetailsModal from "../modals/ShowBookDetailsModal";
+import BorrowBookModal from "../modals/BorrowBookModal";
 
 const BookItem = ({ book }) => {
   return (
@@ -15,11 +16,13 @@ const BookItem = ({ book }) => {
       </p>
       <p>
         <strong>Genre: </strong>
-        {book.genre.join(", ")}
+        {/* {book.genre.join(", ")} */}
+        {book.genre}
       </p>
-      {/* <ShowBookDetails selectedBook={book} /> */}
       <p>
         <strong>Availability: </strong>
+        <ShowBookDetailsModal selectedBook={book} />
+        <BorrowBookModal selectedBook={book} />
       </p>
     </div>
   );

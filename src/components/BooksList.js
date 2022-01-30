@@ -19,6 +19,9 @@ const BooksList = () => {
   const books = booksStore.books
     .filter((book) => book.title.toLowerCase().includes(query.toLowerCase()))
     .map((book) => <BookItem key={book.id} book={book} />);
+
+    // 
+    // membersStore.members.filter((member) => member.firstName)
   return (
     <>
       <div className="members-list">

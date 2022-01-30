@@ -20,6 +20,15 @@ class MembersStore {
     this.members = this.members.find((member) => member.id === memberId);
     console.log(this.members);
   };
+
+  handleBorrowBook = (memberId, selectedBookId) => {
+    this.members = this.members.find(
+      (member) =>
+        member.id === memberId ??
+        member.currentlyBorrowedBooks.push(selectedBookId)
+    );
+    console.log(this.members);
+  };
 }
 const membersStore = new MembersStore();
 export default membersStore;
