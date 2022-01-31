@@ -54,7 +54,6 @@ function BorrowBook({ selectedBook }) {
                 ))}
               </Form.Select>
             </Form.Group>
-
             <Button variant="primary" type="submit" onClick={handleSubmit}>
               Borrow
             </Button>
