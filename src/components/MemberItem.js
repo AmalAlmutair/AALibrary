@@ -2,16 +2,6 @@ import React from "react";
 import ShowMemberProfile from "../modals/ShowMemberProfile";
 
 const MemberItem = ({ member }) => {
-  const membershipBadge = () => {
-    if (member.membership === "platinum") {
-      <img src="../images/Platinum.png" />;
-    } else if (member.membership === "gold") {
-      <img src="../images/Gold.png" />;
-    } else {
-      <img src="../images/Silver.png" />;
-    }
-  };
-
   return (
     <div className="member-item">
       <div className="details">

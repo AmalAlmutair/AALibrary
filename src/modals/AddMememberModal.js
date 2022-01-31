@@ -7,7 +7,7 @@ function AddMememberModal() {
   const [addMember, setAddMember] = useState({
     firstName: "",
     lastName: "",
-    membership: "silver",
+    membership: "gold",
   });
 
   const handleClose = () => setIsOpen(false);
@@ -79,8 +79,8 @@ function AddMememberModal() {
                 name="membership"
                 onChange={handleChange}
               >
-                <option value="platinum">Platinum</option>
                 <option value="gold">Gold</option>
+                <option value="silver">Silver</option>
                 <option value="bronze">Bronze</option>
                 {/* <option>Disabled select</option> */}
               </Form.Select>

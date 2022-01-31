@@ -31,11 +31,11 @@ class MembersStore {
     } else {
       if (
         foundMember &&
-        ((foundMember.membership === "platinum" &&
+        ((foundMember.membership === "gold" &&
           foundMember.currentlyBorrowedBooks.length < 5) ||
-          (foundMember.membership === "gold" &&
-            foundMember.currentlyBorrowedBooks.length < 3) ||
           (foundMember.membership === "silver" &&
+            foundMember.currentlyBorrowedBooks.length < 3) ||
+          (foundMember.membership === "bronze" &&
             foundMember.currentlyBorrowedBooks.length < 2))
       ) {
         foundMember.currentlyBorrowedBooks.push(selectedBook.id);
