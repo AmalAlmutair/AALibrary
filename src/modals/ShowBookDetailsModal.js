@@ -8,7 +8,6 @@ function ShowBookDetails({ selectedBook }) {
 
   const handleClose = () => setIsOpen(false);
   const handleShow = () => setIsOpen(true);
-
   const members = membersStore.members.filter((member) =>
     member.currentlyBorrowedBooks.find((bookId) => +bookId === +selectedBook.id)
   );

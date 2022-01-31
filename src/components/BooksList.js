@@ -3,7 +3,6 @@ import booksStore from "../stores/booksStore";
 import BookItem from "./BookItem";
 import AddBookModal from "../modals/AddBookModal";
 import { observer } from "mobx-react";
-import membersStore from "../stores/membersStore";
 
 const BooksList = () => {
   const [query, setQuery] = useState("");

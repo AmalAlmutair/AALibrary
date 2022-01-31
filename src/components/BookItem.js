@@ -28,7 +28,6 @@ const BookItem = ({ book }) => {
       <div className="buttons-container">
         <p className="buttons">
           <ShowBookDetailsModal selectedBook={book} />
-          <BorrowBookModal selectedBook={book} />
         </p>
       </div>
     </div>
