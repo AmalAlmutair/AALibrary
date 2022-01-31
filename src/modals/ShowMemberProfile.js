@@ -10,56 +10,71 @@ function ShowMemberProfile({ selectedMember }) {
   const handleClose = () => setIsOpen(false);
   const handleShow = () => setIsOpen(true);
 
-  // const handleChange = (event) => {
-  //   setAddMember({ ...addMember, [event.target.name]: event.target.value });
-  // };
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   membersStore.handleAddMember(addMember);
-  //   handleClose();
-  // };
-
   const books = selectedMember.currentlyBorrowedBooks.map((bookId) =>
     booksData.find((book) => +book.id === +bookId)
   );
 
-  // const books = booksData.filter((book) =>
-  //   book.id === selectedMember.currentlyBorrowedBooks ? book : "hello"
-  // );
-
   return (
     <>
-      <div className="members-list-header">
-        <Button variant="primary" onClick={handleShow}>
-          Open Profile
-        </Button>
+      <div>
+        <div className="members-list-header">
+          <Button
+            style={{
+              fontFamily: "Cambria",
+              height: "35px",
+            }}
+            variant="primary"
+            onClick={handleShow}
+          >
+            Details
+          </Button>
+        </div>
+        <Modal
+          style={{ fontFamily: "Cambria" }}
+          show={isOpen}
+          onHide={handleClose}
+        >
+          <Modal.Header style={{ backgroundColor: "tan" }} closeButton>
+            <Modal.Title>Member Profile</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="details">
+              <div className="badge">
+                <img
+                  className="badge-image"
+                  src={
+                    selectedMember.membership === "gold"
+                      ? "https://cdn-icons-png.flaticon.com/512/2583/2583344.png"
+                      : selectedMember.membership === "silver"
+                      ? "https://cdn-icons-png.flaticon.com/512/2583/2583319.png"
+                      : "https://cdn-icons-png.flaticon.com/512/2583/2583434.png"
+                  }
+                />
+              </div>
+              <div className="member-name-books">
+                <p style={{ fontSize: "20px", fontWeight: "bold" }}>
+                  {selectedMember.firstName + " " + selectedMember.lastName}
+                </p>
+              </div>
+            </div>
+            <p style={{ fontFamily: "Cambria" }}>
+              <strong>Books Borrowed: </strong>
+              <ol>
+                {books.map((book) => (
+                  <li>
+                    <div className="book-item">
+                      {book.title} - By: {book.author}
+                      <p>
+                        <img className="book-image" src={book.image} />
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </p>
+          </Modal.Body>
+        </Modal>
       </div>
-      <Modal show={isOpen} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Member Profile</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>
-            <strong>Member Name: </strong>
-            {selectedMember.firstName + " " + selectedMember.lastName}
-          </p>
-          <p>
-            <strong>Membership: </strong>
-            {selectedMember.membership}
-          </p>
-          <p>
-            <strong>Books Borrowed: </strong>
-            <ol>
-              {books.map((book) => (
-                <li>
-                  {book.title} - By: {book.author}
-                </li>
-              ))}
-            </ol>
-          </p>
-        </Modal.Body>
-      </Modal>
     </>
   );
 }

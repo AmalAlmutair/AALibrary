@@ -1,6 +1,6 @@
 import { Modal, Button } from "react-bootstrap";
 import React, { useState } from "react";
-import membersData from "../membersData";
+import membersStore from "../stores/membersStore";
 // import Modal from "../modals/AddMememberModal";
 
 function ShowBookDetails({ selectedBook }) {
@@ -9,19 +9,27 @@ function ShowBookDetails({ selectedBook }) {
   const handleClose = () => setIsOpen(false);
   const handleShow = () => setIsOpen(true);
 
-  const members = selectedBook.borrowedBy.map((memberId) =>
-    membersData.find((member) => +member.id === +memberId)
+  const members = membersStore.members.filter((member) =>
+    member.currentlyBorrowedBooks.find((bookId) => +bookId === +selectedBook.id)
   );
 
   return (
     <>
       <div className="members-list-header">
-        <Button variant="primary" onClick={handleShow}>
-          Book Details
+        <Button
+          style={{ fontFamily: "Cambria", width: "100px" }}
+          variant="primary"
+          onClick={handleShow}
+        >
+          Details
         </Button>
       </div>
-      <Modal show={isOpen} onHide={handleClose}>
-        <Modal.Header closeButton>
+      <Modal
+        style={{ fontFamily: "Cambria" }}
+        show={isOpen}
+        onHide={handleClose}
+      >
+        <Modal.Header style={{ backgroundColor: "tan" }} closeButton>
           <Modal.Title>Book Details</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -36,13 +44,15 @@ function ShowBookDetails({ selectedBook }) {
 
           <p>
             <strong>Genre: </strong>
-            {selectedBook.genre}
+            {selectedBook.genre.map((index) =>
+              selectedBook.genre.length - 1 ? index + ", " : index
+            )}
           </p>
           <p>
-            <strong>Books Borrowed: </strong>
+            <strong>Borrowed By: </strong>
             <ol>
               {members.map((member) => (
-                <li>{member.firstName + " " + member.lastName}</li>
+                <li>{member.firstName + " " + member.lastName + " "}</li>
               ))}
             </ol>
           </p>

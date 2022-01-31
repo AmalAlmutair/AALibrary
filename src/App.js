@@ -9,14 +9,13 @@ import booksStore from "./stores/booksStore";
 // import MemberProfile from "./components/MemberProfile";
 
 function App() {
-  const books = booksStore.books;
   return (
     <div>
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/members" element={<Members />} />
-        <Route path="/books" element={<Books books={books} />} />
+        <Route path="/books" element={<Books />} />
       </Routes>
     </div>
   );

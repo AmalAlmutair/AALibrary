@@ -21,10 +21,10 @@ class MembersStore {
     console.log(this.members);
   };
 
-  handleBorrowBook = (memberId, selectedBookId) => {
+  handleBorrowBook = (memberId, selectedBook) => {
     const foundMember = this.members.find((member) => +member.id === +memberId);
     const alreadyBorrowed = foundMember.currentlyBorrowedBooks.find(
-      (bookId) => +selectedBookId === +bookId
+      (bookId) => +bookId === +selectedBook.id
     );
     if (alreadyBorrowed) {
       window.alert(`You already have this Book La tsta3bi6`);
@@ -38,24 +38,25 @@ class MembersStore {
           (foundMember.membership === "silver" &&
             foundMember.currentlyBorrowedBooks.length < 2))
       ) {
-        foundMember.currentlyBorrowedBooks.push(selectedBookId);
-        console.log(this.members);
+        foundMember.currentlyBorrowedBooks.push(selectedBook.id);
+        selectedBook.borrowedBy.push(memberId);
       } else {
-        console.log("7asafa", memberId, selectedBookId);
+        console.log("7asafa", memberId, selectedBook.id);
       }
     }
   };
-  handleReturnBook = (memberId, selectedBookId) => {
+
+  handleReturnBook = (memberId, selectedBook) => {
     const foundMember = this.members.find((member) => +member.id === +memberId);
-    if (foundMember) {
-      const index = foundMember.currentlyBorrowedBooks.indexOf(selectedBookId);
-      foundMember.currentlyBorrowedBooks.find((bookId) =>
-        +selectedBookId === +bookId
-          ? foundMember.currentlyBorrowedBooks.splice(index, 1)
-          : bookId
-      );
-    }
+    foundMember.currentlyBorrowedBooks = foundMember.currentlyBorrowedBooks.filter(
+      (bookId) => +bookId !== +selectedBook.id
+    );
+
+    selectedBook.borrowedBy = selectedBook.borrowedBy.filter(
+      (_memberId) => +_memberId !== +memberId
+    );
   };
 }
+
 const membersStore = new MembersStore();
 export default membersStore;

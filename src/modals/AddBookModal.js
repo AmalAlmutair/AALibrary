@@ -7,6 +7,7 @@ function AddBookModal() {
   const [addBook, setAddBook] = useState({
     title: "",
     author: "",
+    image: "",
     genre: ["Self-Help"],
   });
 
@@ -20,18 +21,22 @@ function AddBookModal() {
   const handleSubmit = (event) => {
     event.preventDefault();
     booksStore.handleAddBook(addBook);
-    setAddBook({ title: "", author: "", genre: ["Self-Help"] });
+    setAddBook({ title: "", author: "", image: "", genre: ["Self-Help"] });
     handleClose();
   };
   return (
     <>
       <div className="members-list-header">
-        <Button variant="primary" onClick={handleShow}>
+        <Button className="add-btns" variant="primary" onClick={handleShow}>
           Add New Book
         </Button>
       </div>
-      <Modal show={isOpen} onHide={handleClose}>
-        <Modal.Header closeButton>
+      <Modal
+        style={{ fontFamily: "Cambria" }}
+        show={isOpen}
+        onHide={handleClose}
+      >
+        <Modal.Header style={{ backgroundColor: "tan" }} closeButton>
           <Modal.Title>Add New Book</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -53,7 +58,20 @@ function AddBookModal() {
                 onChange={handleChange}
                 name="author"
                 type="text"
-                placeholder="Enter Author "
+                placeholder="Enter Author Name"
+              />
+            </Form.Group>
+            <Form.Group
+              className="mb-3"
+              controlId="formBasicPassword"
+              type="file"
+            >
+              <Form.Label>Image</Form.Label>
+              <Form.Control
+                onChange={handleChange}
+                name="image"
+                type="text"
+                placeholder="Paste Image URL"
               />
             </Form.Group>
             <Form.Group className="mb-3">

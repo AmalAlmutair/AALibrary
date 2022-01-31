@@ -20,7 +20,6 @@ const Books = () => {
       </div>
       <body className="body">
         <BooksList />
-
         <footer className="footer">
           <p>
             Copyright 2022 - All Rights Reserved to Aisha Al Sharhan & Amal Al

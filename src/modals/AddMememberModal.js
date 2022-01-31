@@ -25,40 +25,60 @@ function AddMememberModal() {
   return (
     <>
       <div className="members-list-header">
-        <Button variant="primary" onClick={handleShow}>
+        <Button
+          style={{ fontFamily: "Cambria" }}
+          variant="primary"
+          onClick={handleShow}
+        >
           Add New Member
         </Button>
       </div>
-      <Modal show={isOpen} onHide={handleClose}>
-        <Modal.Header closeButton>
+      <Modal
+        style={{ fontFamily: "Cambria" }}
+        show={isOpen}
+        onHide={handleClose}
+      >
+        <Modal.Header style={{ backgroundColor: "tan" }} closeButton>
           <Modal.Title>Add New Member</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Fist Name</Form.Label>
+              <Form.Label style={{ fontFamily: "Cambria" }}>
+                Fist Name
+              </Form.Label>
               <Form.Control
                 onChange={handleChange}
                 name="firstName"
                 type="text"
                 placeholder="Enter first name"
+                style={{ fontFamily: "Cambria" }}
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Last Name</Form.Label>
+              <Form.Label style={{ fontFamily: "Cambria" }}>
+                Last Name
+              </Form.Label>
               <Form.Control
                 onChange={handleChange}
                 name="lastName"
                 type="text"
                 placeholder="Enter Last Name"
+                style={{ fontFamily: "Cambria" }}
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Select Membership Type:</Form.Label>
-              <Form.Select name="membership" onChange={handleChange}>
+              <Form.Label style={{ fontFamily: "Cambria" }}>
+                Select Membership Type:
+              </Form.Label>
+              <Form.Select
+                style={{ fontFamily: "Cambria" }}
+                name="membership"
+                onChange={handleChange}
+              >
                 <option value="platinum">Platinum</option>
                 <option value="gold">Gold</option>
                 <option value="bronze">Bronze</option>
@@ -66,7 +86,11 @@ function AddMememberModal() {
               </Form.Select>
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button
+              style={{ fontFamily: "Cambria" }}
+              variant="primary"
+              type="submit"
+            >
               Add Member
             </Button>
           </Form>

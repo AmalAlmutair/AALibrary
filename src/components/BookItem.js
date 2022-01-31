@@ -5,25 +5,32 @@ import BorrowBookModal from "../modals/BorrowBookModal";
 
 const BookItem = ({ book }) => {
   return (
-    <div className="member-item">
-      <p>
-        <strong>Title: </strong>
-        {book.title}
-      </p>
-      <p>
-        <strong>Author: </strong>
-        {book.author}
-      </p>
-      <p>
-        <strong>Genre: </strong>
-        {/* {book.genre.join(", ")} */}
-        {book.genre}
-      </p>
-      <p>
-        <strong>Availability: </strong>
-        <ShowBookDetailsModal selectedBook={book} />
-        <BorrowBookModal selectedBook={book} />
-      </p>
+    <div className="book-item">
+      <div>
+        <p>
+          <img className="book-image" src={book.image} />
+        </p>
+      </div>
+      <div className="book-details">
+        <p>
+          <strong>Title: </strong>
+          {book.title}
+        </p>
+        <p>
+          <strong>Author: </strong>
+          {book.author}
+        </p>
+        <p>
+          <strong>Genre: </strong>
+          {book.genre.join(", ")}
+        </p>
+      </div>
+      <div className="buttons-container">
+        <p className="buttons">
+          <ShowBookDetailsModal selectedBook={book} />
+          <BorrowBookModal selectedBook={book} />
+        </p>
+      </div>
     </div>
   );
 };

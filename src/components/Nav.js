@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 function Nav() {
   return (
     <nav
-      style={{ position: "sticky", backgroundColor: "black" }}
-      className="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
+      style={{ position: "sticky" }}
+      className="navbar navbar-expand-lg text-uppercase fixed-top sticky-nav"
       id="mainNav"
     >
       <div className="container">
